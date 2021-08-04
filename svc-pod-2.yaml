@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-pod-2
+spec:
+  type: ClusterIP
+  selector:
+    # vai selecionar as labels definidas nos outros pods
+    app: segundo-pod
+  ports:
+    # - port: 80 # escuta os recursos na porta 80 e despacha na 80
+    - port: 9000 # porta que será ouvido a requisição (curl ip:9000)
+      targetPort: 80 # porta do pod que será despachado
